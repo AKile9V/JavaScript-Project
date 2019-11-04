@@ -2,3 +2,101 @@ html {
     height: 100%;
     width: 100%;
 }
+#gamePerspective {
+    perspective: 1000px;
+}
+#gameWindow {
+    margin: -1% auto auto;
+    width: 50vw;
+    height: 45vw;
+    border-color: black;
+    border-width: 12px;
+    border-style: solid;
+    background-color: steelblue;
+    transform-style: preserve-3d;
+    transform: rotateX(70deg);
+
+        /*TEXT IN CENTER*/
+        /*justify-content: center;*/
+        /*display: flex;*/
+}
+#f1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 6vw auto auto 2vw;
+    height: 12vw;
+    width: 12vw;
+}
+#f2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 6vw;
+    height: 12vw;
+    width: 12vw;
+}
+#f3 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 6vw 2vw auto auto;
+    height: 12vw;
+    width: 12vw;
+}
+#f4 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 21vw auto auto 4vw;
+    height: 10.5vw;
+    width: 10.5vw;
+}
+#f5 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 21vw auto auto auto;
+    height: 10.5vw;
+    width: 10.5vw;
+}
+#f6 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 21vw 4vw auto auto;
+    height: 10.5vw;
+    width: 10.5vw;
+}
+#f7 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 33.5vw auto auto 5vw;
+    height: 10vw;
+    width: 10vw;
+}
+#f8 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 33.5vw auto auto auto;
+    height: 10vw;
+    width: 10vw;
+}
+#f9 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 33.5vw 5vw auto auto;
+    height: 10vw;
+    width: 10vw;
+}
+.hitFields {
+    border: 10px solid black;
+    border-radius: 50%;
+    background-color: red;
+
+}
