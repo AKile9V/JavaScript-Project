@@ -1,18 +1,22 @@
 html {
     height: 100%;
     width: 100%;
+    background-color: #231F20;
+    background-image: url("pictures/bg.jpg");
+    background-repeat: repeat-x;
 }
 #gamePerspective {
     perspective: 1000px;
 }
 #gameWindow {
     margin: -1% auto auto;
-    width: 50vw;
-    height: 45vw;
+    width: 50.5%;
+    height: 865px;
     border-color: black;
-    border-width: 12px;
+    border-width: 3px 12px 10px 12px;
     border-style: solid;
     background-color: steelblue;
+    background-image: url("pictures/texture1.jpg");
     transform-style: preserve-3d;
     transform: rotateX(70deg);
 
@@ -24,79 +28,211 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 6vw auto auto 2vw;
-    height: 12vw;
-    width: 12vw;
+    margin: 120px auto auto 60px;
+    height: 24%;
+    width: 24%;
 }
 #f2 {
     position: absolute;
     left: 0;
     right: 0;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 6vw;
-    height: 12vw;
-    width: 12vw;
+    margin: 120px auto auto auto;
+    height: 24%;
+    width: 24%;
 }
 #f3 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 6vw 2vw auto auto;
-    height: 12vw;
-    width: 12vw;
+    margin: 120px 60px auto auto;
+    height: 24%;
+    width: 24%;
 }
 #f4 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 21vw auto auto 4vw;
-    height: 10.5vw;
-    width: 10.5vw;
+    margin: 385px auto auto 60px;
+    height: 22%;
+    width: 22%;
 }
 #f5 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 21vw auto auto auto;
-    height: 10.5vw;
-    width: 10.5vw;
+    margin: 385px auto auto auto;
+    height: 22%;
+    width: 22%;
 }
 #f6 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 21vw 4vw auto auto;
-    height: 10.5vw;
-    width: 10.5vw;
+    margin: 385px 60px auto auto;
+    height: 22%;
+    width: 22%;
 }
 #f7 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 33.5vw auto auto 5vw;
-    height: 10vw;
-    width: 10vw;
+    margin: 625px auto auto 60px;
+    height: 22%;
+    width: 22%;
 }
 #f8 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 33.5vw auto auto auto;
-    height: 10vw;
-    width: 10vw;
+    margin: 625px auto auto auto;
+    height: 22%;
+    width: 22%;
 }
 #f9 {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 33.5vw 5vw auto auto;
-    height: 10vw;
-    width: 10vw;
+    margin: 625px 60px auto auto;
+    height: 22%;
+    width: 22%;
 }
 .hitFields {
     border: 10px solid black;
     border-radius: 50%;
-    background-color: red;
+    background: white radial-gradient(ellipse, black, #000000, #070707, #1d1d1d, #bebebe);
+}
+#downSide {
+    position: absolute;
+    border: 4px solid #0a0a0a;
+    border-left-width: 9px;
+    border-right-width: 7px;
+    border-bottom-width: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-image: url("pictures/texture2.jpg");
+    height: 267px;
+    width: 87.2%;
+    margin: -188px auto auto;
+    left: 0;
+    right: 0;
+}
+#upSide {
+    position: absolute;
+    border: 4px solid black;
+    height: 300px;
+    width: 36%;
+    left: 0;
+    right: 0;
+    margin: 33px auto auto;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    background-image: url("pictures/texture1.jpg");
 
+}
+#hit1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 280px auto auto 35%;
+    width: 132px;
+    height: 100px;
+    z-index: 300;
+    background-image: url("pictures/monkas1.png");
+}
+
+#hit2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 280px auto auto 45%;
+    width: 132px;
+    height: 100px;
+    z-index: 300;
+    background-image: url("pictures/monkas1.png");
+    transform: scale(-1, 1);
+}
+
+#hit3 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 280px auto auto 58%;
+    width: 132px;
+    height: 100px;
+    z-index: 300;
+    background-image: url("pictures/monkas1.png");
+    transform: scale(-1, 1);
+}
+#hit4 {
+     position: absolute;
+     left: 0;
+     right: 0;
+     margin: 350px auto auto 31%;
+     width: 152px;
+     height: 115px;
+     z-index: 300;
+     background-image: url("pictures/monkas2.png");
+ }
+
+#hit5 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 350px auto auto 48%;
+    width: 152px;
+    height: 115px;
+    z-index: 300;
+    background-image: url("pictures/monkas2.png");
+}
+
+#hit6 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 350px auto auto 62%;
+    width: 152px;
+    height: 115px;
+    z-index: 300;
+    background-image: url("pictures/monkas2.png");
+    transform: scale(-1, 1);
+}
+#hit7 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 457px auto auto 21%;
+    width: 186px;
+    height: 141px;
+    z-index: 300;
+    background-image: url("pictures/monkas3.png");
+    transform: scale(-1, 1);
+
+}
+
+#hit8 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 457px auto auto 43%;
+    width: 186px;
+    height: 141px;
+    z-index: 300;
+    background-image: url("pictures/monkas3.png");
+    transform: scale(-1, 1);
+
+}
+
+#hit9 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 457px auto auto 70%;
+    width: 186px;
+    height: 141px;
+    z-index: 300;
+    background-image: url("pictures/monkas3.png");
+}
+.monkasi {
+    border: 0 groove black;
+    border-left-width: 3px;
 }
