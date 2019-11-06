@@ -133,9 +133,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 280px auto auto 35%;
+    margin: 378px auto auto 35%;
     width: 132px;
-    height: 100px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas1.png");
 }
@@ -144,9 +144,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 280px auto auto 45%;
+    margin: 378px auto auto 45%;
     width: 132px;
-    height: 100px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas1.png");
     transform: scale(-1, 1);
@@ -156,9 +156,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 280px auto auto 58%;
+    margin: 378px auto auto 58%;
     width: 132px;
-    height: 100px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas1.png");
     transform: scale(-1, 1);
@@ -167,9 +167,9 @@ html {
      position: absolute;
      left: 0;
      right: 0;
-     margin: 350px auto auto 31%;
+     margin: 464px auto auto 31%;
      width: 152px;
-     height: 115px;
+     height: 0;
      z-index: 300;
      background-image: url("pictures/monkas2.png");
  }
@@ -178,9 +178,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 350px auto auto 48%;
+    margin: 464px auto auto 48%;
     width: 152px;
-    height: 115px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas2.png");
 }
@@ -189,9 +189,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 350px auto auto 62%;
+    margin: 464px auto auto 62%;
     width: 152px;
-    height: 115px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas2.png");
     transform: scale(-1, 1);
@@ -200,9 +200,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 457px auto auto 21%;
+    margin: 597px auto auto 21%;
     width: 186px;
-    height: 141px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas3.png");
     transform: scale(-1, 1);
@@ -213,9 +213,9 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 457px auto auto 43%;
+    margin: 597px auto auto 43%;
     width: 186px;
-    height: 141px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas3.png");
     transform: scale(-1, 1);
@@ -226,13 +226,62 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 457px auto auto 70%;
+    margin: 597px auto auto 70%;
     width: 186px;
-    height: 141px;
+    height: 0;
     z-index: 300;
     background-image: url("pictures/monkas3.png");
 }
 .monkasi {
     border: 0 groove black;
     border-left-width: 3px;
+}
+
+.monkasi:hover {
+    cursor: pointer;
+}
+#button-start {
+    z-index: 1111111111111111111111111111111;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#sText {
+    position: absolute;
+    z-index: 1111111111111111111111111111111;
+    margin-top: 90px;
+    margin-left: 30px;
+    color: snow;
+}
+#score {
+    position: absolute;
+    margin-top: 90px;
+    z-index: 1111111111111111111111111111111;
+    margin-left: 120px;
+    color: snow;
+}
+
+@font-face {
+    font-family: DigiDigi;
+    src: url("pictures/digidigi.ttf");
+}
+
+#clock {
+    position: absolute;
+    z-index: 1111111111111111111111111111111;
+    margin: 120px auto auto auto;
+    left: 0;
+    right: 0;
+    color: lawngreen;
+    border-width: 6px;
+    border-color: #448700;
+    border-style: groove;
+    border-radius: 18px;
+    width: 200px;
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    font-size: 60px;
+    background-image: url("pictures/green.jpg");
+    font-family: DigiDigi, "Times New Roman", serif;
 }
