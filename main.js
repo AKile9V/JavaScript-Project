@@ -1,13 +1,14 @@
 window.onload = function () {
   var myButton = document.getElementById("button-start");
   var myScore = document.getElementById("score");
+  var myTime = document.getElementById("clock");
 
   function raiseMonkas1(monkas){
       var meWake = setInterval(() => {
           var cheight = monkas.clientHeight + 3;
           var mypos = window.getComputedStyle(monkas);
           var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) - 3;
-          if(cheight === 102) {
+          if(cheight === 99) {
               clearInterval(meWake);
           }
           monkas.style.height = cheight + "px";
@@ -15,10 +16,8 @@ window.onload = function () {
       },12);
 
       monkas.onclick = function () {
-          myScore.innerText = parseInt(myScore.innerText) + 2;
+          myScore.innerText = parseInt(myScore.innerText) + 1;
           monkas.style.pointerEvents = "none";
-
-
       };
 
       setTimeout(() => {
@@ -29,20 +28,12 @@ window.onload = function () {
               if(cheight === 0) {
                   clearInterval(meTake);
                   monkas.style.removeProperty("pointer-events");
-
               }
-
               monkas.style.height = cheight + "px";
               monkas.style.marginTop = margintop + "px";
-
-
           }, 12);
-
       },1500)
-
-
   }
-
 
     function raiseMonkas2(monkas){
         var meWake = setInterval(() => {
@@ -56,6 +47,11 @@ window.onload = function () {
             monkas.style.marginTop = margintop + "px";
         },12);
 
+        monkas.onclick = function () {
+            myScore.innerText = parseInt(myScore.innerText) + 1;
+            monkas.style.pointerEvents = "none";
+        };
+
         setTimeout(() => {
             var meTake = setInterval(() => {
                 var cheight = monkas.clientHeight - 3;
@@ -63,52 +59,50 @@ window.onload = function () {
                 var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) + 3;
                 if(cheight === 0) {
                     clearInterval(meTake);
+                    monkas.style.removeProperty("pointer-events");
                 }
-
                 monkas.style.height = cheight + "px";
                 monkas.style.marginTop = margintop + "px";
-
-
             }, 12);
-
         },1500)
     }
 
-
     function raiseMonkas3(monkas){
         var meWake = setInterval(() => {
-            var cheight = monkas.clientHeight + 3;
+            var cheight = monkas.clientHeight + 4;
             var mypos = window.getComputedStyle(monkas);
-            var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) - 3;
-            if(cheight === 141) {
+            var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) - 4;
+            if(cheight === 140) {
                 clearInterval(meWake);
             }
             monkas.style.height = cheight + "px";
             monkas.style.marginTop = margintop + "px";
         },12);
 
+        monkas.onclick = function () {
+            myScore.innerText = parseInt(myScore.innerText) + 1;
+            monkas.style.pointerEvents = "none";
+        };
+
         setTimeout(() => {
             var meTake = setInterval(() => {
-                var cheight = monkas.clientHeight - 3;
+                var cheight = monkas.clientHeight - 4;
                 var mypos = window.getComputedStyle(monkas);
-                var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) + 3;
+                var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) + 4;
                 if(cheight === 0) {
                     clearInterval(meTake);
+                    monkas.style.removeProperty("pointer-events");
                 }
-
                 monkas.style.height = cheight + "px";
                 monkas.style.marginTop = margintop + "px";
-
-
             }, 12);
-
         },1500)
     }
-
 
   myButton.onclick = function () {
       myButton.disabled = true;
       myScore.innerText = 0;
+      myTime.innerText = 20;
       var counter = 0;
       var monkas1 = document.getElementById("hit1");
       var monkas2 = document.getElementById("hit2");
@@ -128,10 +122,13 @@ window.onload = function () {
       myTimer = setInterval(() => {
           if(counter === 20) {
               clearInterval(myTimer);
-              myButton.disabled = false;
+              setTimeout(() => {
+                  myButton.disabled = false;
+              }, 2000)
               }
 
           counter++;
+          myTime.innerText = 21 - parseInt(counter);
           console.log(counter);
           randNum = Math.floor(Math.random() * 9);
 
