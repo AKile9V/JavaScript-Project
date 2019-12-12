@@ -1,38 +1,47 @@
 window.onload = function () {
-  var myButton = document.getElementById("button-start");
-  var myScore = document.getElementById("score");
-  var myTime = document.getElementById("clock");
+    var myButton = document.getElementById("button-start");
+    var myScore = document.getElementById("score");
+    var myTime = document.getElementById("clock");
 
-  function raiseMonkas1(monkas){
-      var meWake = setInterval(() => {
-          var cheight = monkas.clientHeight + 3;
-          var mypos = window.getComputedStyle(monkas);
-          var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) - 3;
-          if(cheight === 99) {
-              clearInterval(meWake);
-          }
-          monkas.style.height = cheight + "px";
-          monkas.style.marginTop = margintop + "px";
-      },12);
+    function raiseMonkas1(monkas) {
+        var meWake = setInterval(() => {
+            var cheight = monkas.clientHeight + 3;
+            var mypos = window.getComputedStyle(monkas);
+            var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) - 3;
+            if(cheight === 99) {
+                clearInterval(meWake);
+            }
+            monkas.style.height = cheight + "px";
+            monkas.style.marginTop = margintop + "px";
+        },12);
 
-      monkas.onclick = function () {
-          myScore.innerText = parseInt(myScore.innerText) + 1;
-          monkas.style.pointerEvents = "none";
-      };
+        monkas.onclick = function () {
+            myScore.innerText = parseInt(myScore.innerText) + 1;
+            monkas.style.pointerEvents = "none";
+        };
 
-      setTimeout(() => {
-          var meTake = setInterval(() => {
-              var cheight = monkas.clientHeight - 3;
-              var mypos = window.getComputedStyle(monkas);
-              var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) + 3;
-              if(cheight === 0) {
-                  clearInterval(meTake);
-                  monkas.style.removeProperty("pointer-events");
-              }
-              monkas.style.height = cheight + "px";
-              monkas.style.marginTop = margintop + "px";
-          }, 12);
-      },1500)
+        setTimeout(() => {
+            var meTake = setInterval(() => {
+                var cheight = monkas.clientHeight - 3;
+                var mypos = window.getComputedStyle(monkas);
+                var margintop = parseInt(mypos.getPropertyValue("margin-top").slice(0,-2)) + 3;
+                if(cheight === 0) {
+                    clearInterval(meTake);
+                    monkas.style.removeProperty("pointer-events");
+                }
+                monkas.style.height = cheight + "px";
+                monkas.style.marginTop = margintop + "px";
+            }, 12);
+        },1500);
+        return 0;
+    }
+
+    function raiseMonkasSetter(monkas){
+      return new Promise(resolve => {
+          setTimeout(() => {
+              resolve(0);
+          },2100);
+      })
   }
 
     function raiseMonkas2(monkas){
@@ -102,8 +111,9 @@ window.onload = function () {
   myButton.onclick = function () {
       myButton.disabled = true;
       myScore.innerText = 0;
-      myTime.innerText = 20;
-      var counter = 0;
+      myTime.innerText = 30;
+      var timeLeft = 30;
+      var difficulty = 1000;
       var monkas1 = document.getElementById("hit1");
       var monkas2 = document.getElementById("hit2");
       var monkas3 = document.getElementById("hit3");
@@ -118,50 +128,61 @@ window.onload = function () {
 
 
 
+
+      var nesto = setInterval(function () {
+          timeLeft--;
+          if(timeLeft<=0)
+              clearInterval(nesto);
+
+      },1000);
       // Magic
       myTimer = setInterval(() => {
-          if(counter === 20) {
+          if(timeLeft <=0) {
               clearInterval(myTimer);
               setTimeout(() => {
                   myButton.disabled = false;
-              }, 2000)
+              }, 2200)
               }
 
-          counter++;
-          myTime.innerText = 21 - parseInt(counter);
-          console.log(counter);
+          myTime.innerText = parseInt(timeLeft);
           randNum = Math.floor(Math.random() * 9);
 
           if(randNum>=0 && randNum<=2){
               if(myArraySetter[randNum] === 0) {
                   myArraySetter[randNum] = 1;
                   raiseMonkas1(myArray[randNum]);
-              }
-              else {
-                  myArraySetter[randNum] = 0;
-
+                  let uvatim = raiseMonkasSetter(0);
+                  let privremena = randNum;
+                  uvatim.then((monka) =>
+                  {
+                      myArraySetter[privremena] = 0;
+                  })
               }
           }
           else if(randNum>=3 && randNum<=5){
               if(myArraySetter[randNum] === 0) {
                   myArraySetter[randNum] = 1;
                   raiseMonkas2(myArray[randNum]);
-              }
-              else {
-                  myArraySetter[randNum] = 0;
-
+                  let uvatim = raiseMonkasSetter(0);
+                  let privremena = randNum;
+                  uvatim.then((monka) =>
+                  {
+                      myArraySetter[privremena] = 0;
+                  })
               }
           }
           else {
               if(myArraySetter[randNum] === 0) {
                   myArraySetter[randNum] = 1;
                   raiseMonkas3(myArray[randNum]);
-              }
-              else {
-                  myArraySetter[randNum] = 0;
-
+                  let uvatim = raiseMonkasSetter(0);
+                  let privremena = randNum;
+                  uvatim.then((monka) =>
+                  {
+                      myArraySetter[privremena] = 0;
+                  })
               }
           }
-      },1000)
+      },difficulty)
   }
 };
