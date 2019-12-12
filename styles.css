@@ -285,3 +285,100 @@ html {
     background-image: url("pictures/green.jpg");
     font-family: DigiDigi, "Times New Roman", serif;
 }
+
+#bars {
+    background: white;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 1111111111111111111111111111111;
+    margin: 120px 0px 0px 20px;
+}
+
+.difftext {
+    position: relative;
+    color: snow;
+    top: 10px;
+    left: 10px;
+}
+
+.diffbar {
+    background: lightgrey;
+    width: 300px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+
+.difflvl {
+    position: relative;
+    right: 290px;
+    background: darkgrey;
+    width: 300px;
+    height: 30px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    -webkit-transition: right 3s, background 3s;
+    -moz-transition: right 3s, background 3s;
+    -o-transition: right 3s, background 3s;
+    transition: right 3s, background 3s;
+}
+
+.diffbar:hover .difflvl {
+    right: 0;
+}
+
+.diffbar #lvl-1:target {
+    background: green;
+    right: 90%;
+}
+
+.diffbar #lvl-2:target {
+    background: green;
+    right: 75%;
+}
+
+.diffbar #lvl-3:target {
+    background: orange;
+    right: 50%;
+}
+
+.diffbar #lvl-4:target {
+    background: red;
+    right: 25%;
+}
+
+.diffbar #lvl-5:target {
+    background: darkmagenta;
+    right: 10%;
+}
+.diffClick
+{
+    position: absolute;
+    z-index: 1111111111111111111111111111111;
+    margin: 190px 0px 0px 30px;
+}
+
+a { margin: 5px;
+
+}
+
+ /*TODO: IZEDITOVATI DA BUDU KAO DUGMICI I DA SE NA TAJ NACIN BIRA TEZINA*/
+a:visited
+{
+    color: mediumpurple;
+}
+a:focus
+{
+    color: rebeccapurple;
+}
+
+a:hover
+{
+
+}
