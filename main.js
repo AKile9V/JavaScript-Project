@@ -14,7 +14,7 @@ window.onload = function () {
             myArray:[monkas1, monkas2, monkas3, monkas4, monkas5, monkas6, monkas7, monkas8, monkas9],
             myArraySetter:[0, 0, 0, 0, 0, 0, 0, 0, 0],
             // FUNCTION
-            raiseMonkas:function(monkas, randNum) {
+            raiseMonkas:function(monkas, randNum, difff) {
                 var meWake = setInterval(() => {
                     var cheight;
                     var mypos;
@@ -48,11 +48,49 @@ window.onload = function () {
                     }
                     monkas.style.height = cheight + "px";
                     monkas.style.marginTop = margintop + "px";
-                },12);
+                },6);
 
                 monkas.onclick = function () {
                     myScore.innerText = parseInt(myScore.innerText) + 1;
                     monkas.style.pointerEvents = "none";
+                    if(randNum>=0 && randNum<=2)
+                   {
+                       if(randNum === 1 || randNum === 2)
+                           monkas.style.backgroundImage = "url('pictures/pepehands1mirror.png')";
+                       else
+                           monkas.style.backgroundImage = "url('pictures/pepehands1.png')";
+
+                       monkas.style.border = "0px";
+
+                       monkas.style.animation = "shake 0.5s";
+                       monkas.style.animationIterationCount = "infinite";
+                   }
+
+                    else if(randNum>=3 && randNum<=5)
+                    {
+                        if(randNum === 5)
+                            monkas.style.backgroundImage = "url('pictures/pepehands2mirror.png')";
+                        else
+                            monkas.style.backgroundImage = "url('pictures/pepehands2.png')";
+
+                        monkas.style.border = "0px";
+
+                        monkas.style.animation = "shake 0.5s";
+                        monkas.style.animationIterationCount = "infinite";
+                    }
+
+                    else if(randNum>=6 && randNum<=8)
+                    {
+                        if(randNum === 6 || randNum === 7)
+                            monkas.style.backgroundImage = "url('pictures/pepehands3mirror.png')";
+                        else
+                            monkas.style.backgroundImage = "url('pictures/pepehands3.png')";
+
+                        monkas.style.border = "0px";
+
+                        monkas.style.animation = "shake 0.5s";
+                        monkas.style.animationIterationCount = "infinite";
+                    }
                 };
 
                 setTimeout(() => {
@@ -79,8 +117,20 @@ window.onload = function () {
                         }
                         monkas.style.height = cheight + "px";
                         monkas.style.marginTop = margintop + "px";
-                    }, 12);
-                },1500);
+                    }, 6);
+                },difff);
+
+                if(randNum>=0 && randNum<=2)
+                    monkas.style.backgroundImage = "url('pictures/monkas1.png')";
+                else if(randNum>=3 && randNum<=5)
+                    monkas.style.backgroundImage = "url('pictures/monkas2.png')";
+                else if(randNum>=6 && randNum<=8)
+                    monkas.style.backgroundImage = "url('pictures/monkas3.png')";
+                monkas.style.border = "0 groove black";
+                monkas.style.borderLeftWidth = "3px";
+                monkas.style.transform = "";
+                monkas.style.animation = "";
+                monkas.style.animationIterationCount = "";
                 return 0;
             }
         }; // monkaSObj
@@ -98,11 +148,24 @@ window.onload = function () {
     var myTime = document.getElementById("clock");
 
     myButton.onclick = function () {
+        var radio = document.getElementsByName("rad");
+        var difficulty = 1000;
+        for(var i = 0; i < radio.length; i++){
+            if(radio[i].checked){
+                difficulty = radio[i].value;
+                break;
+            }
+        }
         myButton.disabled = true;
+        radio[2].disabled = true;
+        radio[1].disabled = true;
+        radio[0].disabled = true;
+
         myScore.innerText = 0;
         myTime.innerText = 30;
         var timeLeft = 30;
-        var difficulty = 1000;
+        console.log(difficulty);
+
         var monkaBRB = Object.create(monkaSObj);
         var timer = setInterval(function () {
             timeLeft--;
@@ -117,6 +180,9 @@ window.onload = function () {
                 clearInterval(myTimer);
                 setTimeout(() => {
                     myButton.disabled = false;
+                    radio[2].disabled = false;
+                    radio[1].disabled = false;
+                    radio[0].disabled = false;
                 }, 2200)
             }
 
@@ -125,7 +191,7 @@ window.onload = function () {
 
             if (monkaBRB.myArraySetter[randNum] === 0) {
                 monkaBRB.myArraySetter[randNum] = 1;
-                monkaBRB.raiseMonkas(monkaBRB.myArray[randNum], randNum);
+                monkaBRB.raiseMonkas(monkaBRB.myArray[randNum], randNum, 2*difficulty);
                 let uvatim = raiseMonkasSetter();
                 let privremena = randNum;
                 uvatim.then(() => {
